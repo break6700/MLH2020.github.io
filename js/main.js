@@ -24,7 +24,7 @@ function init()
     		color: 'red',
 		fillColor: '#f03',
 		fillOpacity: 0.5,
-		 radius: 500
+		 radius: 20
 		}).addTo(map);
             },
 
