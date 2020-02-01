@@ -19,6 +19,13 @@ function init()
 				map.setView([gpspos.coords.latitude, gpspos.coords.longitude], 14);
 		document.getElementById("latitude").innerHTML= "Your latitude is: " + gpspos.coords.latitude.toFixed(6);
                 document.getElementById("longitude").innerHTML = "Your longitude is: " + gpspos.coords.longitude.toFixed(6);
+		    
+		var circle = L.circle([51.508, -0.11], {
+    		color: 'red',
+		fillColor: '#f03',
+		fillOpacity: 0.5,
+		 radius: 500
+		}).addTo(mymap);
             },
 
             err=> {
