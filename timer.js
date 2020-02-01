@@ -31,4 +31,5 @@ var counter = {};
       counter.min.innerHTML = ye;
     }, 1000);
 }
+document.getElementById("start_button").disabled = true;
 }
