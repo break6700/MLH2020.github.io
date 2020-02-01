@@ -22,7 +22,7 @@ function init()
 		    
 		var marker = L.marker([gpspos.coords.latitude, gpspos.coords.longitude], {
     		color: 'red',
-		fillColor: '#f03',
+		fillColor: '#ff0033',
 		fillOpacity: 0.5,
 		 radius: 20
 		}).addTo(map);
