@@ -17,8 +17,8 @@ function init()
             gpspos=> {
                 console.log(`Lat ${gpspos.coords.latitude} Lon ${gpspos.coords.longitude}`); // show in console for testing purposes
 				map.setView([gpspos.coords.latitude, gpspos.coords.longitude], 14);
-		document.getElementById("latitude").innerHTML= "Your latitude is: " + gpspos.coords.latitude.toFixed(2);
-                document.getElementById("longitude").innerHTML = "Your longitude is: " + gpspos.coords.longitude.toFixed(2);
+		document.getElementById("latitude").innerHTML= "Your latitude is: " + gpspos.coords.latitude.toFixed(6);
+                document.getElementById("longitude").innerHTML = "Your longitude is: " + gpspos.coords.longitude.toFixed(6);
             },
 
             err=> {
