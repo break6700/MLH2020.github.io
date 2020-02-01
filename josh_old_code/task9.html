@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PlacesToStay!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel='stylesheet' href='https://unpkg.com/leaflet@1.5.1/dist/leaflet.css'/>
+	<script type='text/javascript' src='https://unpkg.com/leaflet@1.5.1/dist/leaflet.js'></script>
+	<link rel='stylesheet' href='task9.css'>
+	
+</head>
+
+<body onload='init()'>
+
+<h1>PlacesToStay!</h1>
+
+<p>Search accommodations by town, now displayed in a table and a web map</p>
+
+<form>
+  Location:<br>
+  <input type="text" id="location"><br>
+  
+  <input type="button" id="submitbtn" value="Search!" /><br />
+</form>
+
+<div id="response">
+
+</div>
+
+<div id="userMap">
+
+</div>
+
+</body>
+
+
+<div id="bookingresponcewrapper">
+
+</div>
+
+<form>
+	<input type='hidden' class='accIDfield' id='accIDfield' value=''>
+	
+	<p id='accName'></p>
+	
+	<label id='unamelable' for='username' style="display:none;">Username:</label><input style="display:none;" id="username" type='text'/><br />
+	
+	<label id='thedatelable' for='date' style="display:none;">Date:</label><input id="thedate" style="display:none;" type='date'/><br />
+	
+	<label id='npeoplelable' for='npeople' style="display:none;">Number of people:</label><input id="npeople" type='text' style="display:none;"/><br />
+
+	<input id="formbookbtn" type='button' style="display:none;" value='Book!' />
+</form>
+
+<script type='text/javascript' src='task9.js'></script>
+
+</html>
