@@ -25,7 +25,7 @@ function init()
 		fillColor: '#f03',
 		fillOpacity: 0.5,
 		 radius: 500
-		}).addTo(mymap);
+		}).addTo(map);
             },
 
             err=> {
