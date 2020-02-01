@@ -13,11 +13,10 @@
 
 .bigButton span:first-of-type {
 		height: 60% !important;
-		font-size: 60px !important;
-		margin-bottom: 80% !important;
-		top: 30px ! important;
-		left: 5px;
-		color: red;
+		width: 100%;
+		font-size: 16px;
+		padding: 14px 28px;
+		background-color: #4CAF50
 	}
 	.bigButton {
 		height: 15vh;
