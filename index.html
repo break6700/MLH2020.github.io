@@ -27,9 +27,17 @@
 <br>
 <p> Once your side is chosen, you will have to travel as fast as you can any means necessary. The Straighter the better. After a period of time it will log a new data point the further you go the larger the area you gain keep doing it and take over people's area.</p>
 
+<link href="countdown.css" rel="stylesheet">
+    <script type='text/javascript' src="timer.js"></script>
+
+	<div class="countdown">
+	        <div class="digits" id="cd-min">00:00</div>
+	        <div class="text">TIME REMAINING</div>
+	    </div>
+
 <div class"button">
 <button type="button">FIND ME!</button>
-<button type="submit" formmethod="post">START</button>
+<button onclick="start_timer()">START</button>
 </div>
 <br>
 
@@ -38,8 +46,8 @@
 </div>
 
 <ul>
-  <li><a href="contact.asp">Contact</a></li>
-  <li><a href="about.asp">About</a></li>
+  <li><a href="contact.html">Contact</a></li>
+  <li><a href="about.html">About</a></li>
 </ul>
 
 <div id="error_responce">

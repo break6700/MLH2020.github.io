@@ -7,9 +7,9 @@ function init()
     L.tileLayer
         ("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
             { attribution: attrib } ).addTo(map);
-            
+
     map.setView([50.907435, -1.404244], 14);
-	
+
 	if(navigator.geolocation)
     {
         navigator.geolocation.watchPosition (
@@ -31,5 +31,19 @@ function init()
     else
     {
 		document.getElementById("error_responce").innerHTML = "sorry geolocation is not supported by your browser or you have denied the permission for us to access your location";
+    }
+    function getTimeRemaining(endtime){
+      var t = Date.parse(endtime) - Date.parse(new Date());
+      var seconds = Math.floor( (t/1000) % 60 );
+      var minutes = Math.floor( (t/1000/60) % 60 );
+      var hours = Math.floor( (t/(1000*60*60)) % 24 );
+      var days = Math.floor( t/(1000*60*60*24) );
+      return {
+        'total': t,
+        'days': days,
+        'hours': hours,
+        'minutes': minutes,
+        'seconds': seconds
+      };
     }
 }
