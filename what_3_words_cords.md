@@ -10,7 +10,7 @@ form.sparks.wished
 https://api.what3words.com/v3/convert-to-coordinates?words=form.sparks.wished&key=XK985BV1
 
 #### GeoJson
-'''javascript
+```javascript
 {
   "features": [
     {
@@ -39,7 +39,7 @@ https://api.what3words.com/v3/convert-to-coordinates?words=form.sparks.wished&ke
   ],
   "type": "FeatureCollection"
 }
-'''
+```
 
 ### North East
 
@@ -51,7 +51,7 @@ https://api.what3words.com/v3/convert-to-coordinates?words=bets.going.stable&key
 
 #### geojson
 
-'''javascript
+```javascript
 {
   "features": [
     {
@@ -80,7 +80,7 @@ https://api.what3words.com/v3/convert-to-coordinates?words=bets.going.stable&key
   ],
   "type": "FeatureCollection"
 }
-'''
+```
 
 ### south west
 
@@ -93,7 +93,7 @@ https://api.what3words.com/v3/convert-to-coordinates?words=bake.sunset.metro&key
 
 #### geojson
 
-'''javascript
+```javascript
 {
   "features": [
     {
@@ -122,7 +122,7 @@ https://api.what3words.com/v3/convert-to-coordinates?words=bake.sunset.metro&key
   ],
   "type": "FeatureCollection"
 }
-'''
+```
 
 
 ### South East
@@ -135,7 +135,7 @@ https://api.what3words.com/v3/convert-to-coordinates?words=horses.dance.nests&ke
 
 #### geojson
 
-'''javascript
+```javascript
 {
   "features": [
     {
@@ -164,7 +164,7 @@ https://api.what3words.com/v3/convert-to-coordinates?words=horses.dance.nests&ke
   ],
   "type": "FeatureCollection"
 }
-'''
+```
 
 ## cords to grid
 
@@ -179,7 +179,7 @@ Long: 51.425992
 https://api.what3words.com/v3/grid-section?bounding-box=51.425641, -0.566329,51.425992, -0.565464&key=XK985BV1
 
 ### json
-'''javascript
+```javascript
 {
   "lines": [
     {
@@ -514,11 +514,11 @@ https://api.what3words.com/v3/grid-section?bounding-box=51.425641, -0.566329,51.
     }
   ]
 }
-'''
+```
 
 ### geojson
 
-'''javascipt
+```javascript
 {
   "features": [
     {
@@ -863,4 +863,4 @@ https://api.what3words.com/v3/grid-section?bounding-box=51.425641, -0.566329,51.
   ],
   "type": "FeatureCollection"
 }
-'''
+```
