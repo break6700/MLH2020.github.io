@@ -11,7 +11,7 @@
 }
 
 
-.bigButton span:first-of-type {
+.bigButton {
 		display: block;
 		width: 100%;
 		font-size: 16px;
@@ -20,8 +20,4 @@
 		background-color: #4CAF50;
 		cursor: pointer;
   		text-align: center
-}
-	}
-	.bigButton {
-		height: 30vh;
 }
