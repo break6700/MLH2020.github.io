@@ -20,7 +20,7 @@ function init()
 		document.getElementById("latitude").innerHTML= "Your latitude is: " + gpspos.coords.latitude.toFixed(6);
                 document.getElementById("longitude").innerHTML = "Your longitude is: " + gpspos.coords.longitude.toFixed(6);
 		    
-		var circle = L.circle([51.425719, -0.565893], {
+		var marker = L.marker([51.425719, -0.565893], {
     		color: 'red',
 		fillColor: '#f03',
 		fillOpacity: 0.5,
