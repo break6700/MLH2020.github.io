@@ -10,8 +10,8 @@
   }
 }
 
-@media (max-width : 860px) {
-	.bigButton span:first-of-type {
+
+.bigButton span:first-of-type {
 		height: 60% !important;
 		font-size: 60px !important;
 		margin-bottom: 80% !important;
@@ -20,5 +20,4 @@
 	}
 	.bigButton {
 		height: 15vh;
-	}
 }
