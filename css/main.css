@@ -12,11 +12,15 @@
 
 
 .bigButton span:first-of-type {
-		height: 60% !important;
+		display: block;
 		width: 100%;
 		font-size: 16px;
 		padding: 14px 28px;
-		background-color: #4CAF50
+		color: white;
+		background-color: #4CAF50;
+		cursor: pointer;
+  		text-align: center
+}
 	}
 	.bigButton {
 		height: 30vh;
