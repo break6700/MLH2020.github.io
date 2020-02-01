@@ -1,0 +1,11 @@
+#userMap {
+    width:auto; 
+	height:500px
+}
+
+@media only screen and (max-width: 600px) {
+  #userMap {
+    width:auto; 
+	height:300px
+  }
+}
