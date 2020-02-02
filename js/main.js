@@ -28,14 +28,7 @@ function init()
 		    [50.9458, -1.4016],
 		]).addTo(map);
 	
-	var polygon3 = L.polygon([
-		    [51.0458, -1.4068],
-		    
-		    [50.9172, -1.4216],
-		
-		    [50.8217, -1.4668],
-		    [51.0458, -1.4016],
-		]).addTo(map);
+	
 	
 	
 	//ideas: move the gps code to a function so we can call it whenever we need to and return the lon and lat from it
