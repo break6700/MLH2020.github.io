@@ -30,9 +30,7 @@ function init()
 	
 	var polygon3 = L.polygon([
 		    [51.0458, -1.4068],
-		    
 		    [50.9172, -1.4216],
-		
 		    [50.8217, -1.4668],
 		    [51.0458, -1.4016],
 		]).addTo(map);
@@ -55,6 +53,13 @@ function init()
 				map.setView([gpspos.coords.latitude, gpspos.coords.longitude], 14);
 				document.getElementById("latitude").innerHTML= "Your latitude is: " + gpspos.coords.latitude.toFixed(6);
                 document.getElementById("longitude").innerHTML = "Your longitude is: " + gpspos.coords.longitude.toFixed(6);
+		    
+				var marker = L.marker([gpspos.coords.latitude, gpspos.coords.longitude], {
+					color: 'red',
+					fillColor: '#ff0033',
+					fillOpacity: 0.5,
+					radius: 20
+				}).addTo(map);
             },
 
             err=> {
@@ -85,6 +90,9 @@ function init()
       };
     }
 }
+
+var latitudeBefore = gpspos.coords.latitude
+var longitudeBefore = gpspos.coords.longitude
 
 function join_blue(){
 	var team = "Blue";
@@ -128,11 +136,12 @@ function place_marker(map, colour){
     }
 }
 
-function start_timer(map){
+function start_timer(){
 	var counter = {};
 	// COUNTDOWN IN SECONDS
-	// EXAMPLE - 5 MINS = 5 X 60 = 300 SECS
-	counter.end = 300;
+    // EXAMPLE - 5 MINS = 5 X 60 = 300 SECS
+    //Changed from Tassilo to 120 sec
+	counter.end = 120;
 	place_marker(map, "red");
 
 	// Get he containers
@@ -147,7 +156,14 @@ function start_timer(map){
 			if (counter.end <= 0) {
 				clearInterval(counter.ticker);
 				place_marker(map, "blue");
-				counter.end = 0;
+                counter.end = 0;
+                
+                var nextPolygon = L.polygon([
+                    [latitudeBefore, longitudeBefore],
+                    [latitudeBefore, gpspos.coords.longitude],
+                    [gpspos.coords.latitude, gpspos.coords.longitude],
+                    [gpspos.coords.latitude, longitudeBefore],
+                ]).addTo(map);
 			}
 
 			// Calculate remaining time
@@ -166,15 +182,15 @@ function start_timer(map){
 	document.getElementById("start_button").disabled = true;
 }
 
-function locate_user(){
+function locate_user(map){
 	if(navigator.geolocation)
     {
         navigator.geolocation.getCurrentPosition (
 
             gpspos=> {
 				var lat = gpspos.coords.latitude;
-				var lon = gpspos.coords.longitude;
-				console.log(lat);
+                var lon = gpspos.coords.longitude;
+                console.log(lat);
 				console.log(lon);
 				
 				map.setView([lat, lon], 14);
