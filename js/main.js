@@ -25,7 +25,7 @@ function init()
 		]).addTo(map);
 	
 	var polygon3 = L.polygon([
-		    [50.9858, -1.4068],
+		    [51.9858, -1.4068],
 		    
 		    [50.9172, -1.40436],
 		
