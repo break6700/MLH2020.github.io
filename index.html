@@ -7,10 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>RunTheWorld</title>
-	<noscript>
-		<META HTTP-EQUIV="Refresh" CONTENT="0;URL=ShowErrorPage.html">
-	 </noscript>
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel='stylesheet' href='https://unpkg.com/leaflet@1.5.1/dist/leaflet.css'/>
 	<script type='text/javascript' src='https://unpkg.com/leaflet@1.5.1/dist/leaflet.js'></script>
@@ -31,20 +27,20 @@
 <p id="currentTeam">You have not yet selected a team!</p>
 
 <br>
-<p> Once your side is chosen, you will have to travel as fast as you can, by any means necessary. The Straighter the better. After a period of time it will log a new data point the further you go the larger the area you gain keep doing it and take over people's area.</p>
+<p> Once your side is chosen, you will have to travel as fast as you can any means necessary. The Straighter the better. After a period of time it will log a new data point the further you go the larger the area you gain keep doing it and take over people's area.</p>
 
 <div id="latitude"></div>
 <div id="longitude"></div>
 
 <link href="countdown.css" rel="stylesheet">
-    <script type='text/javascript' src="timer.js"></script>
+    
 
 	<div class="countdown">
 	        <div class="digits" id="cd-min">00:00</div>
 	        <div class="text">TIME REMAINING</div>
 	    </div>
 
-<div class"button">
+<div class="button">
 <button id="userfinder" type="button">FIND ME!</button>
 <button id="start_button" onclick="start_timer()">START</button>
 </div>
