@@ -181,6 +181,8 @@ function locate_user(map){
             gpspos=> {
 				var lat = gpspos.coords.latitude;
 				var lon = gpspos.coords.longitude;
+				console.log(lat);
+				console.log(lon);
 				
 				map.setView([lat, lon], 14);
             },
