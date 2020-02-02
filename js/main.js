@@ -9,6 +9,14 @@ function init()
             { attribution: attrib } ).addTo(map);
 
     map.setView([50.907435, -1.404244], 14);
+	
+	var polygon = L.polygon([
+		    [50.9117, -1.4036],
+		    [50.9117, -1.4098],
+		    [50.9458, -1.4036],
+		    [50.9458, -1.4098],
+		]).addTo(map);
+	
 
 	if(navigator.geolocation)
     {
@@ -27,12 +35,7 @@ function init()
 		 radius: 20
 		}).addTo(map);
 		 
-		var polygon = L.polygon([
-		    [50.9117, -1.4036],
-		    [50.9117, -1.4098],
-		    [50.9458, -1.4036],
-		    [50.9458, -1.4098],
-		]).addTo(map);
+		
             },
 
             err=> {
