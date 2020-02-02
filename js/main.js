@@ -86,8 +86,8 @@ function init()
     }
 }
 
-var latitudeBefore = gpspos.coords.latitude
-var longitudeBefore = gpspos.coords.longitude
+//var latitudeBefore = gpspos.coords.latitude
+//var longitudeBefore = gpspos.coords.longitude
 
 function join_blue(){
 	var team = "Blue";
@@ -135,8 +135,8 @@ function start_timer(map){
 	var counter = {};
 	// COUNTDOWN IN SECONDS
 	// EXAMPLE - 5 MINS = 5 X 60 = SECS
-	//Changed from 300 by Tassilo to:
-	counter.end = 120;
+	//Changed from 300 by Tassilo to 120:
+	counter.end = 300;
 	place_marker(map, "red");
 
 	// Get he containers
@@ -153,12 +153,12 @@ function start_timer(map){
 				place_marker(map, "blue");
 				counter.end = 0;
 				
-				var nextPolygon = L.polygon([
+				/*var nextPolygon = L.polygon([
                     		[latitudeBefore, longitudeBefore],
                     		[latitudeBefore, gpspos.coords.longitude],
                     		[gpspos.coords.latitude, gpspos.coords.longitude],
                     		[gpspos.coords.latitude, longitudeBefore],
-                		]).addTo(map);
+                		]).addTo(map);*/
 			}
 			}
 
