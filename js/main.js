@@ -26,6 +26,13 @@ function init()
 		fillOpacity: 0.5,
 		 radius: 20
 		}).addTo(map);
+		 
+		var polygon = L.polygon([
+		    [50.9117, -1.4036],
+		    [50.9117, -1.4098],
+		    [50.9458, -1.4036],
+		    [50.9458, -1.4098],
+		]).addTo(map);
             },
 
             err=> {
