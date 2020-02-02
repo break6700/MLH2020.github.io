@@ -1,3 +1,5 @@
+var team = "None";
+
 function init()
 {
     var map = L.map ("userMap");
@@ -33,7 +35,9 @@ function init()
 		    [51.0458, -1.4016],
 		]).addTo(map);
 	
-
+	
+	//ideas: move the gps code to a function so we can call it whenever we need to and return the lon and lat from it
+	
 	if(navigator.geolocation)
     {
         navigator.geolocation.watchPosition (
@@ -41,22 +45,20 @@ function init()
             gpspos=> {
                 console.log(`Lat ${gpspos.coords.latitude} Lon ${gpspos.coords.longitude}`); // show in console for testing purposes
 				map.setView([gpspos.coords.latitude, gpspos.coords.longitude], 14);
-		document.getElementById("latitude").innerHTML= "Your latitude is: " + gpspos.coords.latitude.toFixed(6);
+				document.getElementById("latitude").innerHTML= "Your latitude is: " + gpspos.coords.latitude.toFixed(6);
                 document.getElementById("longitude").innerHTML = "Your longitude is: " + gpspos.coords.longitude.toFixed(6);
 		    
-		var marker = L.marker([gpspos.coords.latitude, gpspos.coords.longitude], {
-    		color: 'red',
-		fillColor: '#ff0033',
-		fillOpacity: 0.5,
-		 radius: 20
-		}).addTo(map);
-		 
-		
+				var marker = L.marker([gpspos.coords.latitude, gpspos.coords.longitude], {
+					color: 'red',
+					fillColor: '#ff0033',
+					fillOpacity: 0.5,
+					radius: 20
+				}).addTo(map);
             },
 
             err=> {
 				//document.getElementById("responseCode").innerHTML = `An error occurred: ${err.code}`;
-				document.getElementById("response").innerHTML = "sorry geolocation is not supported by your browser or you have denied the permission for us to access your location";
+				document.getElementById("error_responce").innerHTML = "sorry geolocation is not supported by your browser or you have denied the permission for us to access your location";
             },
 
             {enableHighAccuracy:true, maximumAge: 7000 }
@@ -81,4 +83,83 @@ function init()
         'seconds': seconds
       };
     }
+}
+
+function join_blue(){
+	var team = "Blue";
+	show_team(team);
+}
+
+function join_red(){
+	var team = "Red";
+	show_team(team);
+}
+
+function show_team(team){
+	document.getElementById("currentTeam").innerHTML = "Your currently selected team is: " + team + "!";
+}
+
+function place_marker(map, colour){
+	if(navigator.geolocation)
+    {
+        navigator.geolocation.getCurrentPosition (
+
+            gpspos=> {
+				var lat = gpspos.coords.latitude;
+				var lon = gpspos.coords.longitude;
+		    
+				var marker = L.marker([lat,lon], {
+					color: colour,
+					fillColor: '#ff0033',
+					fillOpacity: 0.5,
+					radius: 20
+				}).addTo(map);
+            },
+            err=> {
+				//document.getElementById("responseCode").innerHTML = `An error occurred: ${err.code}`;
+				document.getElementById("error_responce").innerHTML = "sorry geolocation is not supported by your browser or you have denied the permission for us to access your location";
+            }
+        );
+    }
+    else
+    {
+		document.getElementById("error_responce").innerHTML = "sorry geolocation is not supported by your browser or you have denied the permission for us to access your location";
+    }
+}
+
+function start_timer(map){
+	var counter = {};
+	// COUNTDOWN IN SECONDS
+	// EXAMPLE - 5 MINS = 5 X 60 = 300 SECS
+	counter.end = 300;
+	place_marker(map, "red");
+
+	// Get he containers
+	counter.min = document.getElementById("cd-min");
+	counter.sec = document.getElementById("cd-sec");
+
+	// Start if not past end date
+	if (counter.end > 0) {
+		counter.ticker = setInterval(function(){
+			// Stop if passed end time
+			counter.end--;
+			if (counter.end <= 0) {
+				clearInterval(counter.ticker);
+				counter.end = 0;
+			}
+
+			// Calculate remaining time
+			var secs = counter.end;
+			var mins  = Math.floor(secs / 60); // 1 min = 60 secs
+			secs -= mins * 60;
+
+			// Update HTML
+			if(secs < 10) {
+				secs = "0" + secs;
+			}
+			var ye = mins + ":" + secs;
+			counter.min.innerHTML = ye;
+		}, 1000);
+	}
+	document.getElementById("start_button").disabled = true;
 }
