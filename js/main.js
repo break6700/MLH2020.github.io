@@ -1,5 +1,7 @@
 var team = "None";
 
+var map;
+
 function init()
 {
     var map = L.map ("userMap");
@@ -27,11 +29,12 @@ function init()
 		]).addTo(map);
 	
 	var polygon3 = L.polygon([
+		    [51.0458, -1.4068],
 		    
-		    [50.925112, -1.420292],
-		    [50.927384, -1.422523],
-		    [50.929872, -1.402611],
-		    [50.926627, -1.400723],
+		    [50.9172, -1.4216],
+		
+		    [50.8217, -1.4668],
+		    [51.0458, -1.4016],
 		]).addTo(map);
 	
 	
@@ -144,6 +147,7 @@ function start_timer(map){
 			counter.end--;
 			if (counter.end <= 0) {
 				clearInterval(counter.ticker);
+				place_marker(map, "blue");
 				counter.end = 0;
 			}
 
