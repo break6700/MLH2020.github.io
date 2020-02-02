@@ -55,13 +55,6 @@ function init()
 				map.setView([gpspos.coords.latitude, gpspos.coords.longitude], 14);
 				document.getElementById("latitude").innerHTML= "Your latitude is: " + gpspos.coords.latitude.toFixed(6);
                 document.getElementById("longitude").innerHTML = "Your longitude is: " + gpspos.coords.longitude.toFixed(6);
-		    
-				var marker = L.marker([gpspos.coords.latitude, gpspos.coords.longitude], {
-					color: 'red',
-					fillColor: '#ff0033',
-					fillOpacity: 0.5,
-					radius: 20
-				}).addTo(map);
             },
 
             err=> {
@@ -118,7 +111,7 @@ function place_marker(map, colour){
 		    
 				var marker = L.marker([lat,lon], {
 					color: colour,
-					fillColor: '#ff0033',
+					fillColor: colour,
 					fillOpacity: 0.5,
 					radius: 20
 				}).addTo(map);
@@ -173,7 +166,7 @@ function start_timer(map){
 	document.getElementById("start_button").disabled = true;
 }
 
-function locate_user(map){
+function locate_user(){
 	if(navigator.geolocation)
     {
         navigator.geolocation.getCurrentPosition (
