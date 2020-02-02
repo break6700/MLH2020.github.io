@@ -159,7 +159,7 @@ function start_timer(map){
                     		[gpspos.coords.latitude, gpspos.coords.longitude],
                     		[gpspos.coords.latitude, longitudeBefore],
                 		]).addTo(map);*/
-			}
+			
 			}
 
 			// Calculate remaining time
