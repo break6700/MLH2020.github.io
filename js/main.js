@@ -55,6 +55,13 @@ function init()
 				map.setView([gpspos.coords.latitude, gpspos.coords.longitude], 14);
 				document.getElementById("latitude").innerHTML= "Your latitude is: " + gpspos.coords.latitude.toFixed(6);
                 document.getElementById("longitude").innerHTML = "Your longitude is: " + gpspos.coords.longitude.toFixed(6);
+		    
+		    	var marker = L.marker([gpspos.coords.latitude, gpspos.coords.longitude], {
+    		color: 'red',
+		fillColor: '#ff0033',
+		fillOpacity: 0.5,
+		 radius: 20
+		}).addTo(map);
             },
 
             err=> {
