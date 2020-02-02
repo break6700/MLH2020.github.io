@@ -40,6 +40,12 @@ function init()
 	
 	//ideas: move the gps code to a function so we can call it whenever we need to and return the lon and lat from it
 	
+	document.getElementById("userfinder").addEventListener("click", ()=> 
+        {
+			locate_user(map);
+        } 
+    );
+	
 	if(navigator.geolocation)
     {
         navigator.geolocation.watchPosition (
@@ -165,4 +171,27 @@ function start_timer(map){
 		}, 1000);
 	}
 	document.getElementById("start_button").disabled = true;
+}
+
+function locate_user(map){
+	if(navigator.geolocation)
+    {
+        navigator.geolocation.getCurrentPosition (
+
+            gpspos=> {
+				var lat = gpspos.coords.latitude;
+				var lon = gpspos.coords.longitude;
+				
+				map.setView([lat, lon], 14);
+            },
+            err=> {
+				//document.getElementById("responseCode").innerHTML = `An error occurred: ${err.code}`;
+				document.getElementById("error_responce").innerHTML = "sorry geolocation is not supported by your browser or you have denied the permission for us to access your location";
+            }
+        );
+    }
+    else
+    {
+		document.getElementById("error_responce").innerHTML = "sorry geolocation is not supported by your browser or you have denied the permission for us to access your location";
+    }
 }
