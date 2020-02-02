@@ -6,40 +6,61 @@
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Team Hat Hackers!</title>
+    <title>RunTheWorld</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel='stylesheet' href='https://unpkg.com/leaflet@1.5.1/dist/leaflet.css'/>
 	<script type='text/javascript' src='https://unpkg.com/leaflet@1.5.1/dist/leaflet.js'></script>
 	<link rel='stylesheet' href='css/main.css'>
-	
-</head>
 
+</head>
+<div class="container">
+<!-- calls init function to set up map -->
 <body onload='init()'>
 
-<h1>Run the world!</h1>
-
-<button type="button">Click Me!</button>
-<button type="submit" formmethod="post">Submit using POST</button>
-<button type="button" class="bigButton"> Test CSS Button </button>
-
-	
-<p>
-Choose your side!
-red or blue!
-you decide!
-
-once you side is chosen then you will have to travel as fast as you can any means necessary. Straighter the better. After a period of time it will log a new data point the further you go the larger the area you gain keep doing it and take over people's area.
-</p>
-<div id="userMap">
-
+<div class="title">
+<h1>RUN THE WORLD!</h1>
 </div>
 
-<div id="error_responce">
+<p>CHOOSE YOUR SIDE!</p>
+<button id="red_button" style="background-color:red;color:white;"onclick="join_red()">RED</button>
+<button id="blue_button" style="background-color:blue;color:white;"onclick="join_blue()">BLUE</button>
 
+<p id="currentTeam">You have not yet selected a team!</p>
+
+<br>
+<p> Once your side is chosen, you will have to travel as fast as you can, by any means necessary. The Straighter the better. After a period of time it will log a new data point the further you go the larger the area you gain keep doing it and take over people's area.</p>
+
+<div id="latitude"></div>
+<div id="longitude"></div>
+
+<link href="countdown.css" rel="stylesheet">
+    <script type='text/javascript' src="timer.js"></script>
+
+	<div class="countdown">
+	        <div class="digits" id="cd-min">00:00</div>
+	        <div class="text">TIME REMAINING</div>
+	    </div>
+
+<div class="button">
+<button id="userfinder" type="button">FIND ME!</button>
+<!-- Calls function start_timer -->
+<button id="start_button" onclick="start_timer()">START</button>
 </div>
+<br>
+
+<div id="userMap"></div>
+
+<ul>
+  <li><a href="contact.html">Contact</a></li>
+  <li><a href="about.html">About</a></li>
+</ul>
+
+<div id="error_responce"></div>
+
+
 
 </body>
 
 <script type='text/javascript' src='js/main.js'></script>
-
+</div>
 </html>

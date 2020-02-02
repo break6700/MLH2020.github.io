@@ -2,8 +2,6 @@ var team = "None";
 
 var map;
 
-
-
 function init()
 {
     var map = L.map ("userMap");
@@ -32,7 +30,9 @@ function init()
 	
 	var polygon3 = L.polygon([
 		    [51.0458, -1.4068],
+		    
 		    [50.9172, -1.4216],
+		
 		    [50.8217, -1.4668],
 		    [51.0458, -1.4016],
 		]).addTo(map);
@@ -41,7 +41,7 @@ function init()
 	//ideas: move the gps code to a function so we can call it whenever we need to and return the lon and lat from it
 	
 	document.getElementById("userfinder").addEventListener("click", ()=> 
-        {   //calls function locate user
+        {
 			locate_user(map);
         } 
     );
@@ -70,7 +70,6 @@ function init()
     {
 		document.getElementById("error_responce").innerHTML = "sorry geolocation is not supported by your browser or you have denied the permission for us to access your location";
     }
-    //how much time is left of the 5 mins running (liam)
     function getTimeRemaining(endtime){
       var t = Date.parse(endtime) - Date.parse(new Date());
       var seconds = Math.floor( (t/1000) % 60 );
@@ -87,8 +86,8 @@ function init()
     }
 }
 
-var latitudeBefore = gpspos.coords.latitude
-var longitudeBefore = gpspos.coords.longitude
+//var latitudeBefore = gpspos.coords.latitude
+//var longitudeBefore = gpspos.coords.longitude
 
 function join_blue(){
 	var team = "Blue";
@@ -104,7 +103,6 @@ function show_team(team){
 	document.getElementById("currentTeam").innerHTML = "Your currently selected team is: " + team + "!";
 }
 
-//sets a marker, called at the start and at the end of the timer
 function place_marker(map, colour){
 	if(navigator.geolocation)
     {
@@ -133,16 +131,15 @@ function place_marker(map, colour){
     }
 }
 
-//
 function start_timer(map){
 	var counter = {};
 	// COUNTDOWN IN SECONDS
-	// EXAMPLE - 5 MINS = 5 X 60 = 300 SECS
-    counter.end = 300;
-    //Calls function place marker
+	// EXAMPLE - 5 MINS = 5 X 60 = SECS
+	//Changed from 300 by Tassilo to 120:
+	counter.end = 300;
 	place_marker(map, "red");
 
-	// Get the containers
+	// Get he containers
 	counter.min = document.getElementById("cd-min");
 	counter.sec = document.getElementById("cd-sec");
 
@@ -152,17 +149,17 @@ function start_timer(map){
 			// Stop if passed end time
 			counter.end--;
 			if (counter.end <= 0) {
-                clearInterval(counter.ticker);
-                //Second call of place marker
+				clearInterval(counter.ticker);
 				place_marker(map, "blue");
-                counter.end = 0;
-                
-                var nextPolygon = L.polygon([
-                    [latitudeBefore, longitudeBefore],
-                    [latitudeBefore, gpspos.coords.longitude],
-                    [gpspos.coords.latitude, gpspos.coords.longitude],
-                    [gpspos.coords.latitude, longitudeBefore],
-                ]).addTo(map);
+				counter.end = 0;
+				
+				/*var nextPolygon = L.polygon([
+                    		[latitudeBefore, longitudeBefore],
+                    		[latitudeBefore, gpspos.coords.longitude],
+                    		[gpspos.coords.latitude, gpspos.coords.longitude],
+                    		[gpspos.coords.latitude, longitudeBefore],
+                		]).addTo(map);*/
+			}
 			}
 
 			// Calculate remaining time
