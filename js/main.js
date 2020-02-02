@@ -24,15 +24,6 @@ function init()
 		    [50.9458, -1.4016],
 		]).addTo(map);
 	
-	var polygon3 = L.polygon([
-		    [51.9858, -1.4068],
-		    
-		    [50.9172, -1.40436],
-		
-		    [50.8217, -1.4068],
-		    [50.8458, -1.40436],
-		]).addTo(map);
-	
 
 	if(navigator.geolocation)
     {
